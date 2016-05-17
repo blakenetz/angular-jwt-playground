@@ -1,0 +1,17 @@
+.form{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80vw;
+}
+
+#signup{
+  background: rgb(146, 228, 126)
+}
+
+#login{
+  background: rgb(188, 87, 196);
+}
+
+#get-quote{
+  background: rgb(14, 173, 157)
+}
