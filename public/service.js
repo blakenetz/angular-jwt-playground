@@ -7,11 +7,8 @@
 
   const api = 'http://test-routes.herokuapp.com';
 
-  function userService($http, auth) {
+  function userService($http) {
     var self = this;
-    self.getQuote = function () {
-      return $http.get(api + '/auth/quote')
-    },
     self.signup = function (username, password) {
       return $http.post(api + '/auth/register', {
         username: username,

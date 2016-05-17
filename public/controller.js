@@ -1,34 +1,31 @@
 (function () {
   'use strict';
-  
+
   angular.module('app')
   .controller('Main', MainCtrl)
 
-  function MainCtrl(user, auth) {
-    var self = this;
+  function MainCtrl($http, $log, user, auth) {
+    var vm = this;
 
     function handleRequest(res) {
       var token = res.data ? res.data.token : null;
-      if (token) console.log('JWT:', token);
-      self.message = res.data.message;
+      if (token) $log.info('JWT:', token);
+      vm.message = res.data.message;
     }
 
-    self.login = function () {
-      user.login(self.username, self.password)
+    vm.login = function () {
+      user.login(vm.username, vm.password)
       .then(handleRequest, handleRequest)
     }
-    self.signup = function () {
-      user.signup(self.username, self.password)
+    vm.signup = function () {
+      user.signup(vm.username, vm.password)
       .then(handleRequest, handleRequest)
     }
-    self.getQuote = function () {
-      user.getQuote()
-      .then(handleRequest, handleRequest)
+    vm.logout = function () {
+      auth.logout();
+      vm.message = 'logout successful!';
     }
-    self.logout = function () {
-      auth.logout && auth.logout();
-    }
-    self.isAuthed = function () {
+    vm.isAuthed = function () {
       return auth.isAuthed ? auth.isAuthed() : false;
     }
   }

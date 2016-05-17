@@ -3,14 +3,12 @@
 
   angular.module('app')
   .factory('authInterceptor', authInterceptor)
-  .config(function ($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptor')
-  })
+  .config(intercept)
 
   const api = 'http://test-routes.herokuapp.com';
 
-  function authInterceptor(auth){
-    return{
+  function authInterceptor($log, auth){
+    return {
       request: function (config) {
         console.log('config: ', config);
         var token = auth.getToken();
@@ -24,6 +22,19 @@
           auth.saveToken(res.data.token);
         return res;
       },
+      requestError: function (err) {
+        $log.error('req err: ', err)
+        return err;
+      },
+      responseError: function (err) {
+        $log.error('res err:', err)
+        return err;
+      },
     }
   }
-})
+
+  function intercept($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
+  }
+
+})()

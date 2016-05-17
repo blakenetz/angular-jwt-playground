@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>JWT Intro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="/style.css" media="screen" charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <title>JWT Intro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="/style.css" media="screen" charset="utf-8">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/module.js"></script>
-    <script type="text/javascript" src="/interceptor.js"></script>
-    <script type="text/javascript" src="/service.js"></script>
-    <script type="text/javascript" src="/controller.js"></script>
-  </head>
-  <body ng-app='app' ng-cloak>
-    <div class="container form" ng-controller='Main as main'>
-      <h3>JWT AngularJS example</h3>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" charset="utf-8"></script>
+  <script src="/module.js"></script>
+  <script src="/service.js"></script>
+  <script src="/interceptor.js"></script>
+  <script src="/controller.js"></script>
 
-      <label for="username">Username: </label>
-      <input type="text" name="username" id='username' ng-model='main.username'>
+</head>
+<body ng-app='app' ng-cloak>
+  <div class="container form" ng-controller='Main as main'>
+    <h3>JWT AngularJS example</h3>
 
-      <label for="password">Password: </label>
-      <input type="password" name="password" id='password' ng-model='main.password'>
+    <label for="username">Username: </label>
+    <input type="text" name="username" id='username' ng-model='main.username'>
 
-      <button id='signup' ng-click='main.signup()'>Signup</button>
-      <button id='login' ng-click='main.login()' ng-hide='main.isAuthed()'>Login</button>
-      <button id='get-quote' ng-click='main.logout()' ng-show='main.isAuthed()'>Logout</button>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id='password' ng-model='main.password'>
 
-      <button ng-click='main.getQuote()'>Get guote</button>
+    <button id='signup' ng-click='main.signup()'>Signup</button>
+    <button id='login' ng-click='main.login()' ng-hide='main.isAuthed()'>Login</button>
+    <button id='logout' ng-click='main.logout()' ng-show='main.isAuthed()'>Logout</button>
 
-      {{main.message}}
 
-    </div>
-  </body>
+    {{main.message}}
+
+  </div>
+</body>
 </html>
