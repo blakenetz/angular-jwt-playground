@@ -40,7 +40,7 @@
       var token = self.getToken();
       if (token) {
         var params = self.parseJwt(token);
-        return Math.round(new Date().getTime() / 1000) <= params.exp;
+        return Math.round(new Date().getTime() / 200) <= params.exp;
       } else {
         return false;
       }

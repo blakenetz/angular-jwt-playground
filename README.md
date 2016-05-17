@@ -5,4 +5,4 @@ Based off Thinkster's ['Simple AngularJS Authentication with JWT'](https://think
 To run this app:
 $ firebase serve
 
-When signing-up, the token displays in the console.
+Tokens are set in local storage and logged in the console. 
